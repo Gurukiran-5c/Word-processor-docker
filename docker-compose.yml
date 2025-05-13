@@ -1,0 +1,20 @@
+
+version: "3.8"
+
+services:
+  onlyoffice:
+    image: onlyoffice/documentserver:latest
+    container_name: onlyoffice
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - JWT_SECRET=5C_OFFICE
+    volumes:
+      - ./logs:/var/log/onlyoffice
+      - ./data:/var/www/onlyoffice/Data
+      - ./lib:/var/lib/onlyoffice
+      - ./db:/var/lib/postgresql
+      - ./fonts:/var/www/onlyoffice/documentserver/fonts:ro
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
