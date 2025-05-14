@@ -1,4 +1,3 @@
-
 version: "3.8"
 
 services:
@@ -15,6 +14,6 @@ services:
       - ./data:/var/www/onlyoffice/Data
       - ./lib:/var/lib/onlyoffice
       - ./db:/var/lib/postgresql
-      - ./fonts:/var/www/onlyoffice/documentserver/fonts:ro
+      - ./fonts:/usr/share/fonts/truetype/bookman
       - ./entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/bash", "/entrypoint.sh"]
